@@ -14,6 +14,9 @@ export async function POST(req: Request) {
     // Forward the form data to FastAPI
     const res = await fetch(`${API_URL}/api/cluster`, {
       method: 'POST',
+      headers: {
+        'Bypass-Tunnel-Reminder': 'true'
+      },
       body: formData,
     });
     

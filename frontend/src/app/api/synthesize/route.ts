@@ -6,6 +6,9 @@ export async function POST() {
     
     const res = await fetch(`${API_URL}/api/synthesize`, {
       method: 'POST',
+      headers: {
+        'Bypass-Tunnel-Reminder': 'true'
+      }
     });
     
     if (!res.ok) {
