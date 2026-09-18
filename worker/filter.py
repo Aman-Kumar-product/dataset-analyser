@@ -5,7 +5,7 @@ import os
 import sys
 import re
 
-def filter_dataset():
+def filter_dataset(intent_arg="", keyword_arg=""):
     input_file = "cleaned_dataset.csv"
     output_file = "filtered_intent_dataset.csv"
     
@@ -20,9 +20,11 @@ def filter_dataset():
         print("Dataset is empty. Skipping filtering.")
         return
         
-    # Read intent and keywords from args
-    intent_arg = sys.argv[1] if len(sys.argv) > 1 else ""
-    keyword_arg = sys.argv[2] if len(sys.argv) > 2 else ""
+    # If called from CLI, override with sys.argv
+    if len(sys.argv) > 1:
+        intent_arg = sys.argv[1]
+    if len(sys.argv) > 2:
+        keyword_arg = sys.argv[2]
     
     # Apply defaults if blank
     if not intent_arg or intent_arg.strip() == "":

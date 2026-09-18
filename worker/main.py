@@ -42,7 +42,7 @@ async def run_clustering(
         print(f"Running pipeline on files: {filenames}")
 
         # 1. Ingest
-        ingest.main(filenames)
+        ingest.ingest_csv(filenames)
         
         # Cleanup uploaded raw files immediately to save space
         for f in filenames:
@@ -50,13 +50,13 @@ async def run_clustering(
                 os.remove(f)
                 
         # 2. Filter
-        filter_module.main(intent, keywords)
+        filter_module.filter_dataset(intent, keywords)
         
         # 3. Embed
-        embed.main()
+        embed.generate_embeddings()
         
         # 4. Cluster
-        cluster.main()
+        cluster.cluster_embeddings()
         
         return {"success": True, "message": "Clustering completed successfully"}
     except Exception as e:
