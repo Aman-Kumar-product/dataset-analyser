@@ -34,11 +34,3 @@ cd frontend
 npm install
 npm run dev
 ```
-
-## Deployment Note (Ngrok)
-Because this application uses heavy Machine Learning libraries, standard free-tier hosting limits (512MB RAM) are usually insufficient for the backend. To host the frontend on **Vercel** for free while running the backend locally:
-
-1. Start your local backend on port 8000.
-2. Run Ngrok to tunnel the port: `ngrok http 8000`
-3. Copy the secure `https` Ngrok URL.
-4. In your Vercel project settings, set `NEXT_PUBLIC_API_URL` to your Ngrok URL.
