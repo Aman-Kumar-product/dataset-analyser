@@ -80,7 +80,7 @@ def chat(query=None):
                 try:
                     import google.generativeai as genai
                     genai.configure(api_key=GEMINI_API_KEY)
-                    model = genai.GenerativeModel('gemini-1.5-flash')
+                    model = genai.GenerativeModel('gemini-3.5-flash')
                     resp = model.generate_content(prompt)
                     answer = resp.text
                 except Exception as gemini_e:

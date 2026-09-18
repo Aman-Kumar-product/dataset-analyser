@@ -54,7 +54,7 @@ def synthesize_cluster(cluster_id, texts):
                 print(f"Falling back to Gemini API for cluster {cluster_id}...")
                 import google.generativeai as genai
                 genai.configure(api_key=gemini_key)
-                model = genai.GenerativeModel('gemini-1.5-flash', generation_config={"response_mime_type": "application/json"})
+                model = genai.GenerativeModel('gemini-3.5-flash', generation_config={"response_mime_type": "application/json"})
                 resp = model.generate_content(prompt)
                 return json.loads(resp.text)
             except Exception as gemini_e:

@@ -46,12 +46,8 @@ export function Dashboard() {
     formData.append('keywords', keywords);
 
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-      const res = await fetch(`${API_URL}/api/cluster`, {
+      const res = await fetch('/api/cluster', {
         method: 'POST',
-        headers: {
-          'Bypass-Tunnel-Reminder': 'true'
-        },
         body: formData,
       });
 
@@ -79,13 +75,7 @@ export function Dashboard() {
     setStatusMsg("Step 2: Synthesizing Insights with Groq LLM... (Please wait)");
     
     try {
-      const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
-      const res = await fetch(`${API_URL}/api/synthesize`, { 
-        method: 'POST',
-        headers: {
-          'Bypass-Tunnel-Reminder': 'true'
-        }
-      });
+      const res = await fetch('/api/synthesize', { method: 'POST' });
 
       if (!res.ok) {
         const errData = await res.json();

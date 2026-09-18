@@ -20,12 +20,6 @@ def filter_dataset(intent_arg="", keyword_arg=""):
         print("Dataset is empty. Skipping filtering.")
         return
         
-    # If called from CLI, override with sys.argv
-    if len(sys.argv) > 1:
-        intent_arg = sys.argv[1]
-    if len(sys.argv) > 2:
-        keyword_arg = sys.argv[2]
-    
     # Apply defaults if blank
     if not intent_arg or intent_arg.strip() == "":
         intent_arg = "using the new ask feature, gemini gave me the wrong photo, ai search is too slow, AI hallucinated photos, prompt to find pictures"
