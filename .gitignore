@@ -1,0 +1,22 @@
+# Node modules
+node_modules/
+.next/
+out/
+build/
+
+# Python Virtual Environments
+worker/venv/
+__pycache__/
+*.pyc
+
+# Environment Variables
+.env
+.env.local
+
+# ML Datasets and Temp Outputs
+worker/*.csv
+worker/*.pkl
+
+# OS Files
+.DS_Store
+Thumbs.db
